@@ -1,7 +1,6 @@
 # Class_Toolser 
 
-<img src="https://img.shields.io/badge/Class%20Tools-Tooser-blue"> 
-<img src="https://img.shields.io/badge/Class%20Tools-python-success">
+<img src="https://img.shields.io/badge/Class%20Tools-Tooser-blue"> <img src="https://img.shields.io/badge/Class%20Tools-python-success">
 
 
 
