@@ -3,18 +3,18 @@ This module is a module with cool and fun tools
 
 Tool list : 
 
-    - Dispute       - 
-    - Bank          -  
-    - charge        - 
-    - ip            -  
-    - code Mali     -  
-    - hadis         - 
-    - QUIZ          - 
-    - Short Link    - 
-    - Meaning       - 
-    - info telegram - 
-    -               -  
-    -               - 
+    - Dispute                      - shutdown
+    - Bank                         -  
+    - charge                       - 
+    - ip                           -  
+    - code Mali                    -  
+    - hadis                        - 
+    - QUIZ                         - 
+    - Short Link                   - 
+    - Meaning                      - 
+    - info telegram                - 
+    - Individual and couple        -  
+    - float and integer            - 
 
 -| This library was first a script file, and 
 -| after its uses it was not decided to turn this
@@ -22,7 +22,8 @@ Tool list :
 
 """
 import requests 
-
+from sys import platform
+from os import system
 
 class Tools : 
 
@@ -167,6 +168,7 @@ class Tools :
 
 
     def Hadis(): 
+        # Presents a random Islamic hadith
         Had = requests.get("https://api.keybit.ir/hadis/").json() 
         person_1 = Had['result']['person'] 
         persone_2 = Had['result']['text'] 
@@ -180,6 +182,7 @@ source : {persone3}
 
 
     def QUIZ(): 
+        # One you know raises  
         Qu = requests.get("https://api.keybit.ir/ayamidanid/").json()
         Qu_2 = Qu['text'] 
         print(F'text : {Qu_2}') 
@@ -196,13 +199,21 @@ source : {persone3}
     
 
     def Meaning(Meaning): 
+        # This tool is made for the meaning of words
         Meaning_get = requests.get(f"https://api.codebazan.ir/vajehyab/?text={Meaning}").json()
+        # Says the sentence in Persian  
         htt = Meaning_get['result']['fa'] 
+        # Says the sentence in English 
         htt_1 = Meaning_get['result']['en'] 
+        # Explains more  
         htt_2 = Meaning_get['result']['dic'] 
+        # Explains more  
         htt_3 = Meaning_get['result']['mani'] 
+        # Explains more 
         htt_4 = Meaning_get['result']['Fmoein'] 
+        # Explainss more 
         htt_5 = Meaning_get['result']['Fdehkhoda'] 
+        # Explaness more 
         htt_6 = Meaning_get['result']['motaradefmotezad']  
 
         print(F"""
@@ -216,9 +227,13 @@ motaradefmotezad : {htt_6}
 
 """)
 
-
-
     def info_telegram(id): 
+        # telegram info 
+        # id : sample = 181391321
+        # usernmae : sample = @SI_Developers 
+        # frist_name : frist name = Ahura 
+        # bio : sample = my name is ahuura ! 
+
         info = requests.get(f"https://bot.otherapi.tk/telegram/{id}").json() 
         result = info['info']['id'] 
         result_1 = info['info']['username'] 
@@ -235,3 +250,31 @@ first name : {result_2}
 dc_id : {result_3} 
 bio : {result_4} 
 ''')
+
+
+
+    def Individual__couple(number): 
+        if number % 2 == 0 : 
+            print(F"This is an even number") 
+        else: 
+            print(F"This is an odd number") 
+
+
+    def float_int(number): 
+        if type(number) == int : 
+            print("This is an integer") 
+        else: 
+            print("This is an float") 
+
+
+    def shutdown(time): 
+        try : 
+            if platform == "Windows": 
+                system(f'shutdown -s -t {time}')  
+            elif platform == "linux":
+                system(f'shutdown -h {time} ')  
+            elif platform == "darwin": 
+                system(f"shutdown -h -t {time} ") 
+        except: 
+            raise ValueError('Error value !!!') 
+    
