@@ -3,18 +3,18 @@ This module is a module with cool and fun tools
 
 Tool list : 
 
-    - Dispute     - joke
-    - Bank        - number 
-    - charge      - craet password 
-    - ip          - Wikipedia 
-    - Date        - Convert text to Morse code 
-    - time        -  ping site 
-    - req         - qr code 
-    - font        - Character 
-    - des         - True Code Meli  
-    - Download    - Email Verification 
-    - voice       - encode 
-    - decode      - shutdown 
+    - Dispute       - 
+    - Bank          -  
+    - charge        - 
+    - ip            -  
+    - code Mali     -  
+    - hadis         - 
+    - QUIZ          - 
+    - Short Link    - 
+    - Meaning       - 
+    - info telegram - 
+    -               -  
+    -               - 
 
 -| This library was first a script file, and 
 -| after its uses it was not decided to turn this
@@ -165,3 +165,73 @@ class Tools :
 
             return "The national code is incorrect"
 
+
+    def Hadis(): 
+        Had = requests.get("https://api.keybit.ir/hadis/").json() 
+        person_1 = Had['result']['person'] 
+        persone_2 = Had['result']['text'] 
+        persone3 = Had['result']['source'] 
+
+        print(f"""
+person : {person_1} 
+text : {persone_2} 
+source : {persone3} 
+""")
+
+
+    def QUIZ(): 
+        Qu = requests.get("https://api.keybit.ir/ayamidanid/").json()
+        Qu_2 = Qu['text'] 
+        print(F'text : {Qu_2}') 
+
+
+
+    def short_link(link):
+        links = requests.get(f"https://api.codebazan.ir/shortlink/index.php?url={link}").json()
+        link_opthno = links['result']['bitly'] 
+        print(f"link short : {link_opthno}") 
+        # sample code : 
+        # https://www.amazon.com 
+
+    
+
+    def Meaning(Meaning): 
+        Meaning_get = requests.get(f"https://api.codebazan.ir/vajehyab/?text={Meaning}").json()
+        htt = Meaning_get['result']['fa'] 
+        htt_1 = Meaning_get['result']['en'] 
+        htt_2 = Meaning_get['result']['dic'] 
+        htt_3 = Meaning_get['result']['mani'] 
+        htt_4 = Meaning_get['result']['Fmoein'] 
+        htt_5 = Meaning_get['result']['Fdehkhoda'] 
+        htt_6 = Meaning_get['result']['motaradefmotezad']  
+
+        print(F"""
+fa : {htt} 
+en : {htt_1} 
+dic : {htt_2} 
+mani : {htt_3} 
+fmoein : {htt_4} 
+Fdehkhoda : {htt_5} 
+motaradefmotezad : {htt_6}
+
+""")
+
+
+
+    def info_telegram(id): 
+        info = requests.get(f"https://bot.otherapi.tk/telegram/{id}").json() 
+        result = info['info']['id'] 
+        result_1 = info['info']['username'] 
+        result_2 = info['info']['first_name'] 
+        result_3 = info['info']['dc_id'] 
+        result_4 = info['info']['bio']
+
+
+        print(f'''
+
+id : {result} 
+username : {result_1} 
+first name : {result_2}
+dc_id : {result_3} 
+bio : {result_4} 
+''')
