@@ -4,13 +4,13 @@ This module is a module with cool and fun tools
 Tool list : 
 
     - Dispute                      - shutdown
-    - Bank                         -  
-    - charge                       - 
-    - ip                           -  
-    - code Mali                    -  
-    - hadis                        - 
-    - QUIZ                         - 
-    - Short Link                   - 
+    - Bank                         - cal
+    - charge                       - copy_file
+    - ip                           - move 
+    - code Mali                    - tree
+    - hadis                        - arp 
+    - QUIZ                         - ip
+    - Short Link                   - ping 
     - Meaning                      - 
     - info telegram                - 
     - Individual and couple        -  
@@ -25,7 +25,6 @@ from os import system
 import sys
 import requests 
 from sys import platform
-
 
 class Tools : 
 
@@ -46,10 +45,14 @@ class Tools :
     def who(ip):
         try : 
             name = requests.get(
-                f"https://api.codebazan.ir/whois/index.php?type=json&domain={ip}").json() # requests - get - json()
-            ip = name['ip'] # show ip 
-            address = name['address'] # show addres 
-            dns = name['dns']["1"] # show dns - 1 
+                f"https://api.codebazan.ir/whois/index.php?type=json&domain={ip}").json() 
+                # requests - get - json()
+            ip = name['ip'] 
+            # show ip 
+            address = name['address'] 
+            # show addres 
+            dns = name['dns']["1"] 
+            # show dns - 1 
 
             return f"IP : {ip} \nadress : {address} \ndns : {dns}" 
         except: 
@@ -58,7 +61,8 @@ class Tools :
 
     def font_en(font):  
         try: 
-            fon_name = requests.get(f"http://api.codebazan.ir/font/?text={font}").json()  # api font -- > json() 
+            fon_name = requests.get(f"http://api.codebazan.ir/font/?text={font}").json()  
+            # api font -- > json() 
             print(fon_name['result']["1"]) 
             print(fon_name['result']["2"]) 
             print(fon_name['result']["3"]) 
@@ -114,7 +118,8 @@ class Tools :
             print(fon_name['result']["57"]) 
             print(fon_name['result']["58"]) 
             print(fon_name['result']["59"]) 
-            print(fon_name['result']["60"])  # result - 60 - end 
+            print(fon_name['result']["60"])  
+            # result - 60 - end 
 
         except : 
             raise ValueError(f'eror input : {font}')
@@ -122,9 +127,12 @@ class Tools :
     def req():
         try: 
             Date = requests.get("https://api.codebazan.ir/time-date/?json=en").json() # requstes - get - json()
-            Time =  Date['result']['time'] # result - time 
-            date = Date['result']['date'] # result date 
-            fasl = Date['result']['fasl'] # result  - fas1 
+            Time =  Date['result']['time'] 
+            # result - time 
+            date = Date['result']['date'] 
+            # result date 
+            fasl = Date['result']['fasl'] 
+            # result  - fas1 
             return f'time iran : {Time} \nDate iran : {date} \nfasl : {fasl}' 
         except: 
             print("error api !")
@@ -132,7 +140,8 @@ class Tools :
     
     def jokes():
         try:  
-            name = requests.get("http://api.codebazan.ir/jok/").text # requests - txt 
+            name = requests.get("http://api.codebazan.ir/jok/").text 
+            # requests - txt 
             return name  
         except : 
             print("Error API !" 
@@ -141,25 +150,36 @@ class Tools :
 
     def number(numbers:int): 
         try: 
-            name = requests.get(f"https://api.codebazan.ir/adad/?text={numbers}").json() # renumber quests json() -- 
-            fa = name["result"]["fa"] # exchange number --> Fa and En 
-            fatext = name["result"]["fatext"] # exchange fatext  
+            name = requests.get(f"https://api.codebazan.ir/adad/?text={numbers}").json() 
+            # renumber quests json() -- 
+            fa = name["result"]["fa"]
+             # exchange number --> Fa and En 
+            fatext = name["result"]["fatext"] 
+            # exchange fatext  
             return f"Fa : {fa}\ntext : {fatext}" 
         except : 
             raise ValueError(f"Error value : -- {numbers} type numbers == int !!")
 
 
     def code_mali(code:int):
-        code = str(code) # str code 
-        if not code.isnumeric() or len(code) != 10: # if -- len 
-            return "The national code is incorrect" # return... 
+        code = str(code) 
+        # str code 
+        if not code.isnumeric() or len(code) != 10: 
+            # if -- len 
+            return "The national code is incorrect" 
+            # return... 
 
-        total = 0 # zero 
-        count = int(code[-1]) #inger (int) > code [-1] 
-        for d, index in zip(code, range(10, 1, -1)): # zip code , range(10,1,-1)
-            total += int(d) * index # add int(d) * = index 
+        total = 0 
+        # zero 
+        count = int(code[-1]) 
+        #inger (int) > code [-1] 
+        for d, index in zip(code, range(10, 1, -1)): 
+            # zip code , range(10,1,-1)
+            total += int(d) * index 
+            # add int(d) * = index 
 
-        remis = total % 11 # totoal % len(11)
+        remis = total % 11
+        # totoal % len(11)
         # if , else , return : 
         if remis < 2: 
             if remis == count:
@@ -281,3 +301,65 @@ bio : {result_4}
             print("Windows is not supported") 
         elif platform == "darwin" : 
             print("darwi is not supported ") 
+            # sample code Entry  file_name => g:\File Name  
+            # sample code Entry paste location => d:\Folder   
+    
+    def copy_file(File_name , location): 
+        if platform == "linux" : 
+            system(f"cp {File_name} {location}")
+        # copy file in platform linux 
+        elif platform == "Windows": 
+            system(f"copy {File_name} {location}") 
+        # copy file in paste in platform linux  
+        # sample code Entry  file_name => g:\File Name  
+        # sample code Entry paste location => d:\Folder  
+        else: 
+            print(f"not supported  platform You !!")
+
+
+    def move(file_name , location):
+        # move file in platform linux 
+        if platform == "linux": 
+            system(f"mv {file_name} {location}") 
+        # move in file in platform Windows 
+        elif platform == "Widnows": 
+            system(F"move {file_name} {location}") 
+            # sample code Entry  file_name => g:\File Name  
+            # sample code Entry paste location => d:\Folder  
+        else: 
+            print(f"not supported platform you")
+
+    def Tree(): 
+        if platform == "linux" : 
+            system('tree') 
+        elif platform == "Windows" : 
+            system('tree') 
+        else: 
+            print('not supported platform You !') 
+        
+
+    def arp(): 
+        if platform == "linux" : 
+            system('arp') 
+        elif platform == "Windows" : 
+            system("arp")   
+        else: 
+            print("not supported platform You") 
+
+    def ip(): 
+        if platform == "linux" : 
+            system('ifconfig') 
+        elif platform == "Windows" : 
+            system("ipconfig")   
+        else: 
+            print("not supported platform You") 
+    
+
+    def ping(ip): 
+        if platform == "linux" : 
+            system(f'ping {ip}') 
+        elif platform == "Windows" : 
+            system(f"ping {ip}")   
+        else: 
+            print("not supported platform You") 
+    
