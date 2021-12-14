@@ -30,7 +30,7 @@ The language used by the author was Python 3.8.10
 <code> 
 import Class_TOOlser 
 </code>
-
+<br>
 <code> 
 Class_TOOlser.'name func' 
 </code>
