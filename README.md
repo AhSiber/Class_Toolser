@@ -27,12 +27,8 @@ The language used by the author was Python 3.8.10
 </a>
 # How to execute the file : 
 <a name="one_two"> 
-<code> 
-import Class_TOOlser 
-</code>
+  import Class_TOOlser 
 <br>
-<code> 
-Class_TOOlser.'name func' 
-</code>
+  Class_TOOlser.'name func' 
 </a> 
 
